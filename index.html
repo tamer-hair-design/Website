@@ -1,925 +1,608 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Tamer Hair Design | Dornbirn</title>
-
-  <meta name="description" content="Tamer Hair Design in Dornbirn – Haarschnitte, Colorationen, Haarpflege und Styling.">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: #222;
-      background: #f8f6f2;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* NAVIGATION */
-
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(255,255,255,0.96);
-      border-bottom: 1px solid #e8e4dd;
-    }
-
-    .nav-inner {
-      max-width: 1200px;
-      margin: auto;
-      padding: 18px 25px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: 2px;
-    }
-
-    .logo span {
-      font-weight: 400;
-      color: #8b7355;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .nav-links a:hover {
-      color: #8b7355;
-    }
-
-    .booking-small {
-      background: #222;
-      color: white !important;
-      padding: 10px 18px;
-      border-radius: 2px;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 100vh;
-      padding: 150px 25px 90px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background:
-        linear-gradient(
-          rgba(30,25,20,0.48),
-          rgba(30,25,20,0.48)
-        ),
-        linear-gradient(135deg, #cfc4b7, #8e8174);
-      color: white;
-    }
-
-    .hero-content {
-      max-width: 850px;
-    }
-
-    .hero-small {
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 13px;
-      margin-bottom: 22px;
-    }
-
-    .hero h1 {
-      font-size: clamp(45px, 8vw, 82px);
-      line-height: 1;
-      margin-bottom: 25px;
-      letter-spacing: -2px;
-    }
-
-    .hero p {
-      max-width: 650px;
-      margin: auto;
-      font-size: 18px;
-      opacity: 0.95;
-    }
-
-    .hero-buttons {
-      margin-top: 35px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 15px 28px;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      border: 1px solid white;
-    }
-
-    .btn-light {
-      background: white;
-      color: #222;
-    }
-
-    .btn-transparent {
-      color: white;
-    }
-
-    /* GENERAL */
-
-    section {
-      padding: 95px 25px;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 55px;
-    }
-
-    .section-title small {
-      color: #8b7355;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 12px;
-    }
-
-    .section-title h2 {
-      font-size: 42px;
-      margin-top: 10px;
-      font-weight: 500;
-    }
-
-    /* ABOUT */
-
-    .about {
-      background: white;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .about-box {
-      min-height: 420px;
-      background: linear-gradient(145deg, #d8cec1, #a79a8d);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-      padding: 30px;
-    }
-
-    .about-box div {
-      border: 1px solid rgba(255,255,255,0.7);
-      padding: 60px 30px;
-      width: 100%;
-    }
-
-    .about-box h3 {
-      font-size: 34px;
-      margin-bottom: 10px;
-    }
-
-    .about-text h3 {
-      font-size: 32px;
-      font-weight: 500;
-      margin-bottom: 20px;
-    }
-
-    .about-text p {
-      color: #666;
-      margin-bottom: 18px;
-    }
-
-    /* SERVICES */
-
-    .services {
-      background: #f8f6f2;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .service-card {
-      background: white;
-      padding: 38px 28px;
-      border: 1px solid #e7e1d9;
-      transition: transform 0.2s;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .service-number {
-      color: #a18b72;
-      font-size: 13px;
-      letter-spacing: 2px;
-    }
-
-    .service-card h3 {
-      margin: 15px 0 12px;
-      font-size: 23px;
-      font-weight: 500;
-    }
-
-    .service-card p {
-      color: #777;
-      font-size: 15px;
-    }
-
-    /* GALLERY */
-
-    .gallery {
-      background: white;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    .gallery-item {
-      min-height: 280px;
-      background: linear-gradient(145deg, #cfc3b5, #817365);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .gallery-item:nth-child(2) {
-      background: linear-gradient(145deg, #aaa095, #665b51);
-    }
-
-    .gallery-item:nth-child(3) {
-      background: linear-gradient(145deg, #d9d0c6, #918276);
-    }
-
-    .gallery-item:nth-child(4) {
-      background: linear-gradient(145deg, #b8aa9b, #75675b);
-    }
-
-    .gallery-item:nth-child(5) {
-      background: linear-gradient(145deg, #ddd4ca, #988a7d);
-    }
-
-    .gallery-item:nth-child(6) {
-      background: linear-gradient(145deg, #a99a8b, #5f554d);
-    }
-
-    .gallery-item span {
-      border: 1px solid rgba(255,255,255,0.8);
-      padding: 12px 20px;
-      letter-spacing: 2px;
-      font-size: 12px;
-    }
-
-    /* TEAM */
-
-    .team {
-      background: #f8f6f2;
-      text-align: center;
-    }
-
-    .team-card {
-      max-width: 600px;
-      margin: auto;
-      background: white;
-      padding: 55px 35px;
-      border: 1px solid #e5dfd7;
-    }
-
-    .team-circle {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 25px;
-      border-radius: 50%;
-      background: linear-gradient(145deg, #c9bcad, #75685c);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .team-card h3 {
-      font-size: 28px;
-      margin-bottom: 12px;
-    }
-
-    .team-card p {
-      color: #777;
-    }
-
-    /* CONTACT */
-
-    .contact {
-      background: #222;
-      color: white;
-    }
-
-    .contact .section-title small {
-      color: #c8ad8e;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-    }
-
-    .contact-info h3 {
-      font-size: 28px;
-      font-weight: 500;
-      margin-bottom: 25px;
-    }
-
-    .contact-info p {
-      margin-bottom: 12px;
-      color: #ddd;
-    }
-
-    .contact-info a {
-      color: #ddd;
-    }
-
-    .contact-info a:hover {
-      color: white;
-    }
-
-    .hours {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .hours tr {
-      border-bottom: 1px solid #444;
-    }
-
-    .hours td {
-      padding: 12px 0;
-      color: #ddd;
-    }
-
-    .hours td:last-child {
-      text-align: right;
-    }
-
-    /* BOOKING */
-
-    .booking {
-      text-align: center;
-      background: #c5b6a5;
-      color: white;
-    }
-
-    .booking h2 {
-      font-size: 45px;
-      margin-bottom: 15px;
-    }
-
-    .booking p {
-      margin-bottom: 30px;
-    }
-
-    .booking .btn {
-      border-color: white;
-      background: white;
-      color: #222;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: #171717;
-      color: #999;
-      text-align: center;
-      padding: 25px;
-      font-size: 13px;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 800px) {
-
-      .nav-inner {
-        padding: 15px 18px;
-      }
-
-      .logo {
-        font-size: 18px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        min-height: 90vh;
-        padding-top: 130px;
-      }
-
-      .hero h1 {
-        font-size: 48px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      section {
-        padding: 70px 20px;
-      }
-
-      .section-title h2 {
-        font-size: 34px;
-      }
-
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-box {
-        min-height: 300px;
-      }
-
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .gallery-item {
-        min-height: 190px;
-      }
-
-      .booking h2 {
-        font-size: 35px;
-      }
-    }
-
-    @media (max-width: 480px) {
-
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-item {
-        min-height: 230px;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tamer Hair Design | Dornbirn</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:#111;
+  color:#fff;
+  line-height:1.6;
+}
+
+header{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  padding:22px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:10;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:100px 20px;
+  background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.75)),
+    radial-gradient(circle at center,#555,#111 65%);
+}
+
+.hero-content{
+  max-width:800px;
+}
+
+.hero h1{
+  font-size:clamp(42px,9vw,82px);
+  letter-spacing:4px;
+  margin-bottom:15px;
+}
+
+.hero p{
+  font-size:19px;
+  color:#ddd;
+  margin-bottom:35px;
+}
+
+.buttons{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:none;
+  padding:15px 25px;
+  border-radius:30px;
+  font-size:14px;
+  font-weight:bold;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+}
+
+.btn-white{
+  background:#fff;
+  color:#111;
+}
+
+.btn-outline{
+  background:transparent;
+  color:#fff;
+  border:1px solid #fff;
+}
+
+section{
+  padding:80px 7%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.section-title h2{
+  font-size:38px;
+  letter-spacing:2px;
+}
+
+.section-title p{
+  color:#aaa;
+  margin-top:10px;
+}
+
+.services{
+  background:#181818;
+}
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.service{
+  background:#222;
+  padding:30px;
+  border-radius:15px;
+  text-align:center;
+  border:1px solid #333;
+}
+
+.service h3{
+  margin-bottom:10px;
+}
+
+.service p{
+  color:#aaa;
+}
+
+.about{
+  background:#111;
+  text-align:center;
+}
+
+.about-content{
+  max-width:750px;
+  margin:auto;
+}
+
+.about-content p{
+  color:#ccc;
+  margin-top:15px;
+}
+
+.gallery{
+  background:#181818;
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+}
+
+.gallery-item{
+  height:250px;
+  border-radius:15px;
+  background:linear-gradient(135deg,#333,#111);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#888;
+  font-size:18px;
+}
+
+.booking{
+  text-align:center;
+  background:#222;
+}
+
+.booking p{
+  color:#bbb;
+  margin:15px 0 25px;
+}
+
+.contact{
+  background:#111;
+}
+
+.contact-box{
+  max-width:700px;
+  margin:auto;
+  text-align:center;
+}
+
+.contact-box h3{
+  margin-top:25px;
+  margin-bottom:5px;
+}
+
+.contact-box p{
+  color:#bbb;
+}
+
+.contact-box a{
+  color:#fff;
+  text-decoration:none;
+}
+
+footer{
+  padding:30px;
+  text-align:center;
+  background:#080808;
+  color:#777;
+  font-size:14px;
+}
+
+/* MODAL */
+
+.modal{
+  display:none;
+  position:fixed;
+  z-index:100;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.8);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal-box{
+  background:#1d1d1d;
+  width:100%;
+  max-width:430px;
+  border-radius:18px;
+  padding:35px 25px;
+  text-align:center;
+  position:relative;
+  border:1px solid #444;
+}
+
+.modal-box h2{
+  margin-bottom:20px;
+  font-size:27px;
+}
+
+.modal-box p{
+  color:#ccc;
+  margin-bottom:20px;
+}
+
+.close{
+  position:absolute;
+  right:18px;
+  top:10px;
+  font-size:32px;
+  cursor:pointer;
+  color:#aaa;
+}
+
+.contact-info{
+  margin:20px 0;
+  padding:20px;
+  background:#111;
+  border-radius:12px;
+}
+
+.contact-info strong{
+  color:#fff;
+}
+
+.contact-button{
+  display:block;
+  width:100%;
+  padding:14px;
+  margin-top:12px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.whatsapp{
+  background:#25D366;
+  color:#fff;
+}
+
+.phone{
+  background:#fff;
+  color:#111;
+}
+
+@media(max-width:600px){
+  section{
+    padding:65px 20px;
+  }
+
+  .hero h1{
+    font-size:46px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .btn{
+    width:100%;
+    max-width:300px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
+<header>
+  <div class="logo">TAMER HAIR DESIGN</div>
+</header>
 
-  <nav>
-    <div class="nav-inner">
+<!-- HERO -->
 
-      <a href="#home" class="logo">
-        TAMER <span>HAIR DESIGN</span>
-      </a>
+<section class="hero">
+  <div class="hero-content">
 
-      <div class="nav-links">
-        <a href="#about">Über uns</a>
-        <a href="#services">Leistungen</a>
-        <a href="#gallery">Galerie</a>
-        <a href="#team">Team</a>
-        <a href="#contact">Kontakt</a>
+    <h1>TAMER HAIR DESIGN</h1>
 
-        <a
-          href="https://buchung.treatwell.at/ort/tamer-hair-design/"
-          target="_blank"
-          class="booking-small"
-        >
-          Jetzt buchen
-        </a>
-      </div>
+    <p>
+      Professionelles Haarstyling in Dornbirn
+    </p>
 
-    </div>
-  </nav>
+    <div class="buttons">
 
-
-  <!-- HERO -->
-
-  <section class="hero" id="home">
-
-    <div class="hero-content">
-
-      <div class="hero-small">
-        Hair • Beauty • Style
-      </div>
-
-      <h1>Tamer Hair Design</h1>
-
-      <p>
-        Moderne Haarschnitte, professionelle Colorationen
-        und individuelles Styling in Dornbirn.
-      </p>
-
-      <div class="hero-buttons">
-
-        <a
-          href="https://buchung.treatwell.at/ort/tamer-hair-design/"
-          target="_blank"
-          class="btn btn-light"
-        >
-          TERMIN BUCHEN
-        </a>
-
-        <a href="#contact" class="btn btn-transparent">
-          KONTAKT
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ABOUT -->
-
-  <section class="about" id="about">
-
-    <div class="container">
-
-      <div class="section-title">
-        <small>Willkommen</small>
-        <h2>Schönheit beginnt mit Stil</h2>
-      </div>
-
-      <div class="about-grid">
-
-        <div class="about-box">
-          <div>
-            <h3>TAMER</h3>
-            <p>Hair Design • Dornbirn</p>
-          </div>
-        </div>
-
-        <div class="about-text">
-
-          <h3>Ihr Salon für moderne Looks</h3>
-
-          <p>
-            Lust auf einen neuen Haarschnitt oder eine moderne
-            Haarfarbe? Bei Tamer Hair Design steht Ihr persönlicher
-            Stil im Mittelpunkt.
-          </p>
-
-          <p>
-            Wir verbinden moderne Techniken mit individueller
-            Beratung und sorgfältiger Arbeit – für einen Look,
-            der zu Ihnen passt.
-          </p>
-
-          <p>
-            Besuchen Sie uns in der Marktstraße 8 in Dornbirn.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- SERVICES -->
-
-  <section class="services" id="services">
-
-    <div class="container">
-
-      <div class="section-title">
-        <small>Unsere Leistungen</small>
-        <h2>Hair & Beauty</h2>
-      </div>
-
-      <div class="service-grid">
-
-        <div class="service-card">
-          <div class="service-number">01</div>
-          <h3>Haarschnitte</h3>
-          <p>
-            Moderne Schnitte und individuelle Styles,
-            abgestimmt auf Ihre Persönlichkeit.
-          </p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-number">02</div>
-          <h3>Colorationen</h3>
-          <p>
-            Haarfarben und Strähnen mit einem individuellen
-            und modernen Ergebnis.
-          </p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-number">03</div>
-          <h3>Haarpflege</h3>
-          <p>
-            Professionelle Pflege für gesund aussehendes
-            und gepflegtes Haar.
-          </p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-number">04</div>
-          <h3>Styling</h3>
-          <p>
-            Styling für Alltag, besondere Anlässe und
-            Ihren persönlichen Look.
-          </p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-number">05</div>
-          <h3>Damen</h3>
-          <p>
-            Individuelle Damen-Haarschnitte, Pflege,
-            Farbe und Styling.
-          </p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-number">06</div>
-          <h3>Herren</h3>
-          <p>
-            Klassische und moderne Herrenstyles für
-            einen gepflegten Look.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- GALLERY -->
-
-  <section class="gallery" id="gallery">
-
-    <div class="container">
-
-      <div class="section-title">
-        <small>Galerie</small>
-        <h2>Unsere Arbeit</h2>
-      </div>
-
-      <div class="gallery-grid">
-
-        <div class="gallery-item">
-          <span>HAIR STYLE</span>
-        </div>
-
-        <div class="gallery-item">
-          <span>COLOR</span>
-        </div>
-
-        <div class="gallery-item">
-          <span>STYLE</span>
-        </div>
-
-        <div class="gallery-item">
-          <span>BEAUTY</span>
-        </div>
-
-        <div class="gallery-item">
-          <span>HAIR DESIGN</span>
-        </div>
-
-        <div class="gallery-item">
-          <span>TAMER HAIR DESIGN</span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- TEAM -->
-
-  <section class="team" id="team">
-
-    <div class="container">
-
-      <div class="section-title">
-        <small>Unser Team</small>
-        <h2>Persönlich. Professionell.</h2>
-      </div>
-
-      <div class="team-card">
-
-        <div class="team-circle">
-          TH
-        </div>
-
-        <h3>Tamer Hair Design</h3>
-
-        <p>
-          Mit Erfahrung, Leidenschaft und einem Blick
-          für Details kümmern wir uns um Ihren individuellen
-          Haarstyle.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- BOOKING -->
-
-  <section class="booking">
-
-    <div class="container">
-
-      <h2>Bereit für Ihren neuen Look?</h2>
-
-      <p>
-        Vereinbaren Sie jetzt Ihren Termin bei Tamer Hair Design.
-      </p>
-
-      <a
-        href="https://buchung.treatwell.at/ort/tamer-hair-design/"
-        target="_blank"
-        class="btn"
-      >
+      <button class="btn btn-white" onclick="openBooking()">
         JETZT TERMIN BUCHEN
+      </button>
+
+      <button class="btn btn-outline" onclick="openContact()">
+        KONTAKT
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+
+<section class="services">
+
+  <div class="section-title">
+    <h2>UNSERE LEISTUNGEN</h2>
+    <p>Professionelles Styling und individuelle Beratung</p>
+  </div>
+
+  <div class="service-grid">
+
+    <div class="service">
+      <h3>Haarschnitt</h3>
+      <p>Präzise Schnitte für Damen und Herren.</p>
+    </div>
+
+    <div class="service">
+      <h3>Styling</h3>
+      <p>Modernes Styling für jeden Anlass.</p>
+    </div>
+
+    <div class="service">
+      <h3>Farbe</h3>
+      <p>Individuelle Haarfarben und Farbberatung.</p>
+    </div>
+
+    <div class="service">
+      <h3>Barber</h3>
+      <p>Professionelle Herrenhaarschnitte und Bartpflege.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about">
+
+  <div class="section-title">
+    <h2>ÜBER UNS</h2>
+  </div>
+
+  <div class="about-content">
+
+    <p>
+      Willkommen bei Tamer Hair Design in Dornbirn.
+      Wir verbinden professionelles Handwerk mit modernem
+      Styling und persönlicher Beratung.
+    </p>
+
+    <p>
+      Unser Ziel ist es, dass Sie unseren Salon zufrieden
+      und mit einem neuen Look verlassen.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="gallery">
+
+  <div class="section-title">
+    <h2>GALERIE</h2>
+    <p>Einblicke in unsere Arbeit</p>
+  </div>
+
+  <div class="gallery-grid">
+
+    <div class="gallery-item">Hair Style</div>
+    <div class="gallery-item">Hair Cut</div>
+    <div class="gallery-item">Styling</div>
+    <div class="gallery-item">Barber</div>
+
+  </div>
+
+</section>
+
+<!-- BOOKING -->
+
+<section class="booking">
+
+  <div class="section-title">
+
+    <h2>TERMIN VEREINBAREN</h2>
+
+    <p>
+      Kontaktieren Sie uns direkt und vereinbaren Sie Ihren Wunschtermin.
+    </p>
+
+    <button class="btn btn-white" onclick="openBooking()">
+      TERMIN BUCHEN
+    </button>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="kontakt">
+
+  <div class="section-title">
+    <h2>KONTAKT</h2>
+  </div>
+
+  <div class="contact-box">
+
+    <h3>Tamer Hair Design</h3>
+
+    <p>
+      Marktstraße 8<br>
+      6850 Dornbirn<br>
+      Österreich
+    </p>
+
+    <h3>Telefon</h3>
+
+    <p>
+      <a href="tel:+436606003790">
+        0660 6003790
       </a>
+    </p>
+
+    <h3>Öffnungszeiten</h3>
+
+    <p>
+      Montag: geschlossen<br>
+      Dienstag – Freitag: 09:00 – 18:00<br>
+      Samstag: 09:00 – 14:00<br>
+      Sonntag: geschlossen
+    </p>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Tamer Hair Design – Dornbirn
+</footer>
+
+
+<!-- BOOKING MODAL -->
+
+<div class="modal" id="bookingModal">
+
+  <div class="modal-box">
+
+    <span class="close" onclick="closeBooking()">×</span>
+
+    <h2>Termin buchen</h2>
+
+    <p>
+      Kontaktieren Sie Tamer Hair Design direkt.
+    </p>
+
+    <a
+      class="contact-button whatsapp"
+      href="https://wa.me/436606003790?text=Hallo%20Tamer%20Hair%20Design,%20ich%20möchte%20gerne%20einen%20Termin%20vereinbaren."
+      target="_blank">
+      💬 ÜBER WHATSAPP
+    </a>
+
+    <a
+      class="contact-button phone"
+      href="tel:+436606003790">
+      ☎️ 0660 6003790 ANRUFEN
+    </a>
+
+  </div>
+
+</div>
+
+
+<!-- CONTACT MODAL -->
+
+<div class="modal" id="contactModal">
+
+  <div class="modal-box">
+
+    <span class="close" onclick="closeContact()">×</span>
+
+    <h2>Tamer Hair Design</h2>
+
+    <div class="contact-info">
+
+      <p>
+        <strong>Geschäftsname</strong><br>
+        Tamer Hair Design
+      </p>
+
+      <p>
+        <strong>Anschrift</strong><br>
+        Marktstraße 8<br>
+        6850 Dornbirn<br>
+        Österreich
+      </p>
+
+      <p>
+        <strong>Telefon</strong><br>
+        0660 6003790
+      </p>
 
     </div>
 
-  </section>
+    <a
+      class="contact-button phone"
+      href="tel:+436606003790">
+      ☎️ 0660 6003790 ANRUFEN
+    </a>
+
+  </div>
+
+</div>
 
 
-  <!-- CONTACT -->
+<script>
 
-  <section class="contact" id="contact">
+function openBooking(){
+  document.getElementById("bookingModal").style.display="flex";
+}
 
-    <div class="container">
+function closeBooking(){
+  document.getElementById("bookingModal").style.display="none";
+}
 
-      <div class="section-title">
-        <small>Kontakt</small>
-        <h2>Wir freuen uns auf Sie</h2>
-      </div>
+function openContact(){
+  document.getElementById("contactModal").style.display="flex";
+}
 
-      <div class="contact-grid">
+function closeContact(){
+  document.getElementById("contactModal").style.display="none";
+}
 
-        <div class="contact-info">
+window.onclick = function(event){
 
-          <h3>Tamer Hair Design</h3>
+  const bookingModal =
+    document.getElementById("bookingModal");
 
-          <p>
-            <strong>Adresse</strong><br>
-            Marktstraße 8<br>
-            6850 Dornbirn<br>
-            Österreich
-          </p>
+  const contactModal =
+    document.getElementById("contactModal");
 
-          <p>
-            <strong>Telefon</strong><br>
-            <a href="tel:+436606003790">
-              0660 6003790
-            </a>
-          </p>
+  if(event.target === bookingModal){
+    bookingModal.style.display="none";
+  }
 
-          <p>
-            <strong>E-Mail</strong><br>
-            <a href="mailto:tamerhairdesign@hotmail.com">
-              tamerhairdesign@hotmail.com
-            </a>
-          </p>
+  if(event.target === contactModal){
+    contactModal.style.display="none";
+  }
 
-        </div>
+}
 
-
-        <div>
-
-          <h3>Öffnungszeiten</h3>
-
-          <table class="hours">
-
-            <tr>
-              <td>Montag</td>
-              <td>Geschlossen</td>
-            </tr>
-
-            <tr>
-              <td>Dienstag</td>
-              <td>09:00 – 18:00</td>
-            </tr>
-
-            <tr>
-              <td>Mittwoch</td>
-              <td>09:00 – 18:00</td>
-            </tr>
-
-            <tr>
-              <td>Donnerstag</td>
-              <td>09:00 – 18:00</td>
-            </tr>
-
-            <tr>
-              <td>Freitag</td>
-              <td>09:00 – 18:00</td>
-            </tr>
-
-            <tr>
-              <td>Samstag</td>
-              <td>09:00 – 14:00</td>
-            </tr>
-
-            <tr>
-              <td>Sonntag</td>
-              <td>Geschlossen</td>
-            </tr>
-
-          </table>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- FOOTER -->
-
-  <footer>
-    © 2026 Tamer Hair Design · Dornbirn
-  </footer>
+</script>
 
 </body>
 </html>
