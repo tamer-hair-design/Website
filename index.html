@@ -4,313 +4,475 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tamer Hair Design | Dornbirn</title>
+<title>Tamer Hair Design – Dornbirn</title>
 
 <style>
 *{
+  box-sizing:border-box;
   margin:0;
   padding:0;
-  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
-  font-family:Arial, Helvetica, sans-serif;
   background:#111;
-  color:#fff;
-  line-height:1.6;
+  color:#eee;
+  font-family:Georgia, "Times New Roman", serif;
+  line-height:1.7;
 }
 
+img{
+  max-width:100%;
+  display:block;
+}
+
+section{
+  padding:90px 6%;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+}
+
+/* HEADER */
+
 header{
-  position:absolute;
+  position:fixed;
   top:0;
   left:0;
   width:100%;
-  padding:22px 7%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  z-index:10;
+  z-index:1000;
+  background:rgba(10,10,10,.94);
+  border-bottom:1px solid rgba(212,175,55,.25);
+  backdrop-filter:blur(10px);
 }
 
-.logo{
-  font-size:25px;
-  font-weight:bold;
-  letter-spacing:2px;
+.header-inner{
+  max-width:1200px;
+  margin:auto;
+  min-height:85px;
+  padding:12px 25px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
+
+.logo-text{
+  color:#d7b45a;
+  font-size:25px;
+  letter-spacing:4px;
+  font-weight:bold;
+}
+
+.logo-sub{
+  display:block;
+  font-size:10px;
+  letter-spacing:3px;
+  color:#eee;
+  margin-top:-5px;
+}
+
+/* HERO */
 
 .hero{
   min-height:100vh;
+  padding-top:120px;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:100px 20px;
+  position:relative;
+  overflow:hidden;
   background:
-    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.75)),
-    radial-gradient(circle at center,#555,#111 65%);
+    linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.82)),
+    url("logo.jpg") center/cover no-repeat;
 }
 
 .hero-content{
-  max-width:800px;
+  max-width:950px;
+  padding:30px;
 }
 
 .hero h1{
-  font-size:clamp(42px,9vw,82px);
-  letter-spacing:4px;
-  margin-bottom:15px;
+  font-size:clamp(50px,9vw,105px);
+  line-height:1;
+  letter-spacing:6px;
+  color:#e0c16b;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+
+.hero h2{
+  font-size:clamp(21px,4vw,38px);
+  font-weight:normal;
+  letter-spacing:3px;
+  color:#fff;
+  margin-bottom:25px;
 }
 
 .hero p{
+  max-width:720px;
+  margin:auto;
+  color:#ccc;
   font-size:19px;
-  color:#ddd;
-  margin-bottom:35px;
 }
 
 .buttons{
+  margin-top:35px;
   display:flex;
-  gap:15px;
   justify-content:center;
+  gap:15px;
   flex-wrap:wrap;
 }
 
 .btn{
-  border:none;
-  padding:15px 25px;
-  border-radius:30px;
-  font-size:14px;
-  font-weight:bold;
-  cursor:pointer;
+  border:1px solid #d7b45a;
+  padding:13px 27px;
   text-decoration:none;
-  display:inline-block;
+  color:#fff;
+  background:transparent;
+  font-family:Georgia,serif;
+  font-size:15px;
+  letter-spacing:2px;
+  cursor:pointer;
+  transition:.3s;
 }
 
-.btn-white{
-  background:#fff;
+.btn:hover{
+  background:#d7b45a;
   color:#111;
 }
 
-.btn-outline{
-  background:transparent;
-  color:#fff;
-  border:1px solid #fff;
-}
-
-section{
-  padding:80px 7%;
-}
+/* TITLES */
 
 .section-title{
   text-align:center;
-  margin-bottom:50px;
+  margin-bottom:55px;
 }
 
 .section-title h2{
-  font-size:38px;
-  letter-spacing:2px;
+  font-size:clamp(35px,6vw,58px);
+  color:#d7b45a;
+  letter-spacing:3px;
+  text-transform:uppercase;
 }
 
 .section-title p{
-  color:#aaa;
+  color:#999;
   margin-top:10px;
+  letter-spacing:2px;
 }
 
-.services{
+/* ABOUT */
+
+.about{
   background:#181818;
 }
 
-.service-grid{
+.about-grid{
+  max-width:1050px;
+  margin:auto;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
+  grid-template-columns:280px 1fr;
+  gap:55px;
+  align-items:start;
+}
+
+.tamer-photo{
+  width:260px;
+  height:340px;
+  object-fit:cover;
+  object-position:center;
+  border:1px solid #d7b45a;
+}
+
+.about h3{
+  font-size:38px;
+  color:#d7b45a;
+  letter-spacing:3px;
+  margin-bottom:3px;
+}
+
+.about .profession{
+  color:#aaa;
+  font-size:20px;
+  letter-spacing:2px;
+  margin-bottom:22px;
+}
+
+.about p{
+  color:#ddd;
+  font-size:18px;
+}
+
+/* SERVICES */
+
+.services{
+  background:#111;
+}
+
+.service-category{
+  max-width:1050px;
+  margin:0 auto 60px;
+}
+
+.service-category h3{
+  text-align:center;
+  color:#d7b45a;
+  font-size:30px;
+  letter-spacing:2px;
+  margin-bottom:20px;
+  text-transform:uppercase;
 }
 
 .service{
-  background:#222;
-  padding:30px;
-  border-radius:15px;
-  text-align:center;
-  border:1px solid #333;
+  display:flex;
+  justify-content:space-between;
+  gap:25px;
+  padding:19px 0;
+  border-bottom:1px solid #333;
 }
 
-.service h3{
-  margin-bottom:10px;
+.service-name{
+  color:#eee;
+  font-size:18px;
 }
 
-.service p{
-  color:#aaa;
+.service-time{
+  display:block;
+  color:#888;
+  font-size:15px;
 }
 
-.about{
-  background:#111;
-  text-align:center;
+.service-price{
+  color:#d7b45a;
+  font-size:19px;
+  white-space:nowrap;
 }
 
-.about-content{
-  max-width:750px;
-  margin:auto;
-}
-
-.about-content p{
-  color:#ccc;
-  margin-top:15px;
-}
+/* GALLERY */
 
 .gallery{
   background:#181818;
 }
 
 .gallery-grid{
+  max-width:1150px;
+  margin:auto;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
 }
 
 .gallery-item{
-  height:250px;
-  border-radius:15px;
-  background:linear-gradient(135deg,#333,#111);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#888;
-  font-size:18px;
+  height:360px;
+  overflow:hidden;
+  border:1px solid #292929;
 }
 
-.booking{
-  text-align:center;
-  background:#222;
+.gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .6s;
 }
 
-.booking p{
-  color:#bbb;
-  margin:15px 0 25px;
+.gallery-item:hover img{
+  transform:scale(1.04);
 }
+
+.gallery-item.large{
+  grid-column:span 2;
+  height:500px;
+}
+
+/* CONTACT */
 
 .contact{
+  text-align:center;
   background:#111;
 }
 
 .contact-box{
   max-width:700px;
   margin:auto;
-  text-align:center;
+  padding:40px 25px;
+  border:1px solid #d7b45a;
+  background:#151515;
 }
 
 .contact-box h3{
-  margin-top:25px;
-  margin-bottom:5px;
+  color:#d7b45a;
+  font-size:30px;
+  margin-bottom:20px;
 }
 
 .contact-box p{
-  color:#bbb;
+  color:#ddd;
+  font-size:19px;
+  margin:10px 0;
 }
 
 .contact-box a{
-  color:#fff;
+  color:#d7b45a;
   text-decoration:none;
 }
 
+/* FOOTER */
+
 footer{
-  padding:30px;
+  padding:35px 20px;
   text-align:center;
   background:#080808;
   color:#777;
-  font-size:14px;
+  letter-spacing:2px;
+  font-size:13px;
 }
 
-/* MODAL */
+/* MODALS */
 
 .modal{
   display:none;
   position:fixed;
-  z-index:100;
-  left:0;
-  top:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,.8);
+  z-index:2000;
+  inset:0;
+  background:rgba(0,0,0,.82);
   align-items:center;
   justify-content:center;
   padding:20px;
 }
 
 .modal-box{
-  background:#1d1d1d;
   width:100%;
-  max-width:430px;
-  border-radius:18px;
-  padding:35px 25px;
-  text-align:center;
+  max-width:500px;
+  background:#181818;
+  border:1px solid #d7b45a;
+  padding:40px 28px;
   position:relative;
-  border:1px solid #444;
-}
-
-.modal-box h2{
-  margin-bottom:20px;
-  font-size:27px;
-}
-
-.modal-box p{
-  color:#ccc;
-  margin-bottom:20px;
+  text-align:center;
 }
 
 .close{
   position:absolute;
   right:18px;
-  top:10px;
-  font-size:32px;
+  top:8px;
+  font-size:34px;
+  color:#d7b45a;
   cursor:pointer;
-  color:#aaa;
 }
 
-.contact-info{
-  margin:20px 0;
-  padding:20px;
-  background:#111;
-  border-radius:12px;
+.modal-box h2{
+  color:#d7b45a;
+  font-size:34px;
+  margin-bottom:20px;
 }
 
-.contact-info strong{
-  color:#fff;
+.modal-box p{
+  color:#ddd;
+  font-size:18px;
+  margin-bottom:22px;
+}
+
+.modal-box strong{
+  color:#d7b45a;
 }
 
 .contact-button{
   display:block;
-  width:100%;
-  padding:14px;
-  margin-top:12px;
-  border-radius:10px;
+  padding:13px;
+  margin:12px 0;
   text-decoration:none;
-  font-weight:bold;
-}
-
-.whatsapp{
-  background:#25D366;
+  border:1px solid #d7b45a;
   color:#fff;
 }
 
-.phone{
-  background:#fff;
-  color:#111;
+.whatsapp{
+  background:#168b48;
+  border-color:#168b48;
 }
 
-@media(max-width:600px){
+.phone{
+  background:#222;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
   section{
-    padding:65px 20px;
+    padding:70px 20px;
+  }
+
+  .header-inner{
+    min-height:70px;
+  }
+
+  .logo-text{
+    font-size:20px;
+    letter-spacing:3px;
+  }
+
+  .hero{
+    min-height:100svh;
   }
 
   .hero h1{
-    font-size:46px;
+    font-size:47px;
+    letter-spacing:3px;
+  }
+
+  .hero h2{
+    font-size:21px;
   }
 
   .hero p{
     font-size:16px;
   }
 
-  .btn{
-    width:100%;
-    max-width:300px;
+  .about-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .tamer-photo{
+    margin:auto;
+    width:230px;
+    height:300px;
+  }
+
+  .about p{
+    font-size:16px;
+    text-align:left;
+  }
+
+  .service{
+    gap:10px;
+  }
+
+  .service-name{
+    font-size:16px;
+  }
+
+  .service-price{
+    font-size:16px;
+  }
+
+  .gallery-grid{
+    grid-template-columns:1fr;
+  }
+
+  .gallery-item,
+  .gallery-item.large{
+    grid-column:span 1;
+    height:270px;
+  }
+
+  .gallery-item.large{
+    height:330px;
   }
 }
 </style>
@@ -319,141 +481,345 @@ footer{
 <body>
 
 <header>
-  <div class="logo">TAMER HAIR DESIGN</div>
+  <div class="header-inner">
+    <div>
+      <div class="logo-text">TAMER</div>
+      <span class="logo-sub">HAIR DESIGN</span>
+    </div>
+
+    <button class="btn" onclick="openContact()">
+      KONTAKT
+    </button>
+  </div>
 </header>
+
 
 <!-- HERO -->
 
 <section class="hero">
+
   <div class="hero-content">
 
-    <h1>TAMER HAIR DESIGN</h1>
+    <h1>TAMER</h1>
+
+    <h2>HAIR DESIGN</h2>
 
     <p>
-      Professionelles Haarstyling in Dornbirn
+      Exklusive Haarkunst, persönliche Beratung und
+      handwerkliche Meisterqualität in Dornbirn.
     </p>
 
     <div class="buttons">
 
-      <button class="btn btn-white" onclick="openBooking()">
-        JETZT TERMIN BUCHEN
+      <button class="btn" onclick="openBooking()">
+        TERMIN VEREINBAREN
       </button>
 
-      <button class="btn btn-outline" onclick="openContact()">
+      <button class="btn" onclick="openContact()">
         KONTAKT
       </button>
 
     </div>
 
   </div>
-</section>
-
-<!-- SERVICES -->
-
-<section class="services">
-
-  <div class="section-title">
-    <h2>UNSERE LEISTUNGEN</h2>
-    <p>Professionelles Styling und individuelle Beratung</p>
-  </div>
-
-  <div class="service-grid">
-
-    <div class="service">
-      <h3>Haarschnitt</h3>
-      <p>Präzise Schnitte für Damen und Herren.</p>
-    </div>
-
-    <div class="service">
-      <h3>Styling</h3>
-      <p>Modernes Styling für jeden Anlass.</p>
-    </div>
-
-    <div class="service">
-      <h3>Farbe</h3>
-      <p>Individuelle Haarfarben und Farbberatung.</p>
-    </div>
-
-    <div class="service">
-      <h3>Barber</h3>
-      <p>Professionelle Herrenhaarschnitte und Bartpflege.</p>
-    </div>
-
-  </div>
 
 </section>
 
-<!-- ABOUT -->
+
+<!-- ÜBER TAMER -->
 
 <section class="about">
 
   <div class="section-title">
-    <h2>ÜBER UNS</h2>
+    <h2>Über Tamer</h2>
+    <p>30 Jahre Erfahrung · Meister seines Handwerks</p>
   </div>
 
-  <div class="about-content">
+  <div class="about-grid">
 
-    <p>
-      Willkommen bei Tamer Hair Design in Dornbirn.
-      Wir verbinden professionelles Handwerk mit modernem
-      Styling und persönlicher Beratung.
-    </p>
+    <img
+      src="tamer.jpg"
+      class="tamer-photo"
+      alt="Tamer Hair Design"
+    >
 
-    <p>
-      Unser Ziel ist es, dass Sie unseren Salon zufrieden
-      und mit einem neuen Look verlassen.
-    </p>
+    <div>
+
+      <h3>Tamer</h3>
+
+      <div class="profession">
+        Hair Artist & Color Expert
+      </div>
+
+      <p>
+        Seit über 30 Jahren widme ich mich mit Leidenschaft
+        und Präzision dem Friseurhandwerk. Über drei Jahrzehnte
+        Erfahrung haben meinen Blick für Form, Farbe und
+        individuelle Schönheit geprägt.
+      </p>
+
+      <br>
+
+      <p>
+        Heute verbinde ich handwerkliche Meisterschaft mit
+        persönlicher Beratung und einem hohen Anspruch an
+        Qualität. Bei Tamer Hair Design steht nicht irgendein
+        Haarschnitt im Mittelpunkt, sondern ein Ergebnis,
+        das zu Ihnen und Ihrer Persönlichkeit passt.
+      </p>
+
+    </div>
 
   </div>
 
 </section>
 
-<!-- GALLERY -->
+
+<!-- PREISLISTE -->
+
+<section class="services">
+
+  <div class="section-title">
+    <h2>Preisliste</h2>
+    <p>Unsere Leistungen</p>
+  </div>
+
+
+  <div class="service-category">
+
+    <h3>Damen – Haarschnitte</h3>
+
+    <div class="service">
+      <div>
+        <div class="service-name">
+          Damen – Waschen, Schneiden & Föhnen
+        </div>
+        <span class="service-time">(1 Std.)</span>
+      </div>
+      <div class="service-price">120,00 €</div>
+    </div>
+
+    <div class="service">
+      <div>
+        <div class="service-name">
+          Damen – Waschen, Schneiden, Föhnen & Pflege
+        </div>
+        <span class="service-time">(1 Std. 30 Min.)</span>
+      </div>
+      <div class="service-price">130,00 €</div>
+    </div>
+
+  </div>
+
+
+  <div class="service-category">
+
+    <h3>Coloration & Strähnen</h3>
+
+    <div class="service">
+      <div>
+        <div class="service-name">Damen – Ansatzfarbe ab</div>
+        <span class="service-time">(1 Std. 30 Min.)</span>
+      </div>
+      <div class="service-price">115,00 €</div>
+    </div>
+
+    <div class="service">
+      <div>
+        <div class="service-name">Damen – Farbe komplett</div>
+        <span class="service-time">(1 Std. 30 Min.)</span>
+      </div>
+      <div class="service-price">ab 130,00 €</div>
+    </div>
+
+    <div class="service">
+      <div>
+        <div class="service-name">Damen – Teilsträhnen Oberkopf</div>
+        <span class="service-time">(2 Std.)</span>
+      </div>
+      <div class="service-price">150,00 €</div>
+    </div>
+
+    <div class="service">
+      <div>
+        <div class="service-name">Damen – Strähnen</div>
+        <span class="service-time">(2 Std.)</span>
+      </div>
+      <div class="service-price">ab 220,00 €</div>
+    </div>
+
+    <div class="service">
+      <div>
+        <div class="service-name">Damen – Balayage Oberkopf</div>
+        <span class="service-time">(2 Std.)</span>
+      </div>
+      <div class="service-price">150,00 €</div>
+    </div>
+
+    <div class="service">
+      <div>
+        <div class="service-name">Damen – Balayage</div>
+        <span class="service-time">(2 Std.)</span>
+      </div>
+      <div class="service-price">ab 250,00 €</div>
+    </div>
+
+  </div>
+
+
+  <div class="service-category">
+
+    <h3>Extras & Pflege</h3>
+
+    <div class="service">
+      <div>
+        <div class="service-name">Haarwäsche</div>
+        <span class="service-time">(10 Min.)</span>
+      </div>
+      <div class="service-price">10,00 €</div>
+    </div>
+
+    <div class="service">
+      <div>
+        <div class="service-name">Damen – Haarschnitt</div>
+        <span class="service-time">(45 Min.)</span>
+      </div>
+      <div class="service-price">80,00 €</div>
+    </div>
+
+    <div class="service">
+      <div>
+        <div class="service-name">Damen – Föhnen</div>
+        <span class="service-time">(30 Min.)</span>
+      </div>
+      <div class="service-price">40,00 €</div>
+    </div>
+
+    <div class="service">
+      <div>
+        <div class="service-name">Damen – Lockenstyling</div>
+        <span class="service-time">(30 Min.)</span>
+      </div>
+      <div class="service-price">50,00 €</div>
+    </div>
+
+    <div class="service">
+      <div>
+        <div class="service-name">Damen – Hochsteckfrisur</div>
+        <span class="service-time">(30 Min.)</span>
+      </div>
+      <div class="service-price">60,00 €</div>
+    </div>
+
+    <div class="service">
+      <div>
+        <div class="service-name">Damen – Haarpflege</div>
+        <span class="service-time">(30 Min.)</span>
+      </div>
+      <div class="service-price">25,00 €</div>
+    </div>
+
+    <div class="service">
+      <div>
+        <div class="service-name">Damen – Dauerwelle</div>
+        <span class="service-time">(1 Std. 45 Min.)</span>
+      </div>
+      <div class="service-price">ab 180,00 €</div>
+    </div>
+
+  </div>
+
+
+  <div class="service-category">
+
+    <h3>Herren Pakete</h3>
+
+    <div class="service">
+      <div>
+        <div class="service-name">Herren – Haarschnitt</div>
+        <span class="service-time">(40 Min.)</span>
+      </div>
+      <div class="service-price">40,00 €</div>
+    </div>
+
+    <div class="service">
+      <div>
+        <div class="service-name">
+          Herren – Haarschnitt & Bartpflege
+        </div>
+        <span class="service-time">(45 Min.)</span>
+      </div>
+      <div class="service-price">50,00 €</div>
+    </div>
+
+    <div class="service">
+      <div>
+        <div class="service-name">Herren – Bartpflege</div>
+        <span class="service-time">(20 Min.)</span>
+      </div>
+      <div class="service-price">15,00 €</div>
+    </div>
+
+    <div class="service">
+      <div>
+        <div class="service-name">Herren – Dauerwelle</div>
+        <span class="service-time">(20 Min.)</span>
+      </div>
+      <div class="service-price">110,00 €</div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- GALERIE -->
 
 <section class="gallery">
 
   <div class="section-title">
-    <h2>GALERIE</h2>
-    <p>Einblicke in unsere Arbeit</p>
+    <h2>Galerie</h2>
+    <p>Tamer Hair Design</p>
   </div>
 
   <div class="gallery-grid">
 
-    <div class="gallery-item">Hair Style</div>
-    <div class="gallery-item">Hair Cut</div>
-    <div class="gallery-item">Styling</div>
-    <div class="gallery-item">Barber</div>
+    <div class="gallery-item large">
+      <img src="salon1.jpg" alt="Tamer Hair Design Salon">
+    </div>
+
+    <div class="gallery-item">
+      <img src="salon2.jpg" alt="Salon">
+    </div>
+
+    <div class="gallery-item">
+      <img src="salon3.jpg" alt="Salon">
+    </div>
+
+    <div class="gallery-item">
+      <img src="salon4.jpg" alt="Salon">
+    </div>
+
+    <div class="gallery-item">
+      <img src="salon5.jpg" alt="Salon">
+    </div>
+
+    <div class="gallery-item large">
+      <img src="salon6.jpg" alt="Tamer Hair Design">
+    </div>
 
   </div>
 
 </section>
 
-<!-- BOOKING -->
 
-<section class="booking">
+<!-- KONTAKT -->
 
-  <div class="section-title">
-
-    <h2>TERMIN VEREINBAREN</h2>
-
-    <p>
-      Kontaktieren Sie uns direkt und vereinbaren Sie Ihren Wunschtermin.
-    </p>
-
-    <button class="btn btn-white" onclick="openBooking()">
-      TERMIN BUCHEN
-    </button>
-
-  </div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section class="contact" id="kontakt">
+<section class="contact">
 
   <div class="section-title">
-    <h2>KONTAKT</h2>
+    <h2>Kontakt</h2>
+    <p>Wir freuen uns auf Ihren Besuch</p>
   </div>
 
   <div class="contact-box">
@@ -466,65 +832,23 @@ footer{
       Österreich
     </p>
 
-    <h3>Telefon</h3>
-
     <p>
       <a href="tel:+436606003790">
         0660 6003790
       </a>
     </p>
 
-    <h3>Öffnungszeiten</h3>
-
-    <p>
-      Montag: geschlossen<br>
-      Dienstag – Freitag: 09:00 – 18:00<br>
-      Samstag: 09:00 – 14:00<br>
-      Sonntag: geschlossen
-    </p>
-
   </div>
 
 </section>
 
+
 <footer>
-  © 2026 Tamer Hair Design – Dornbirn
+  © Tamer Hair Design · Dornbirn · Österreich
 </footer>
 
 
-<!-- BOOKING MODAL -->
-
-<div class="modal" id="bookingModal">
-
-  <div class="modal-box">
-
-    <span class="close" onclick="closeBooking()">×</span>
-
-    <h2>Termin buchen</h2>
-
-    <p>
-      Kontaktieren Sie Tamer Hair Design direkt.
-    </p>
-
-    <a
-      class="contact-button whatsapp"
-      href="https://wa.me/436606003790?text=Hallo%20Tamer%20Hair%20Design,%20ich%20möchte%20gerne%20einen%20Termin%20vereinbaren."
-      target="_blank">
-      💬 ÜBER WHATSAPP
-    </a>
-
-    <a
-      class="contact-button phone"
-      href="tel:+436606003790">
-      ☎️ 0660 6003790 ANRUFEN
-    </a>
-
-  </div>
-
-</div>
-
-
-<!-- CONTACT MODAL -->
+<!-- KONTAKT POPUP -->
 
 <div class="modal" id="contactModal">
 
@@ -534,31 +858,56 @@ footer{
 
     <h2>Tamer Hair Design</h2>
 
-    <div class="contact-info">
+    <p>
+      <strong>Anschrift</strong><br>
+      Marktstraße 8<br>
+      6850 Dornbirn<br>
+      Österreich
+    </p>
 
-      <p>
-        <strong>Geschäftsname</strong><br>
-        Tamer Hair Design
-      </p>
-
-      <p>
-        <strong>Anschrift</strong><br>
-        Marktstraße 8<br>
-        6850 Dornbirn<br>
-        Österreich
-      </p>
-
-      <p>
-        <strong>Telefon</strong><br>
-        0660 6003790
-      </p>
-
-    </div>
+    <p>
+      <strong>Telefon</strong>
+    </p>
 
     <a
       class="contact-button phone"
-      href="tel:+436606003790">
-      ☎️ 0660 6003790 ANRUFEN
+      href="tel:+436606003790"
+    >
+      ☎ 0660 6003790 ANRUFEN
+    </a>
+
+  </div>
+
+</div>
+
+
+<!-- TERMIN POPUP -->
+
+<div class="modal" id="bookingModal">
+
+  <div class="modal-box">
+
+    <span class="close" onclick="closeBooking()">×</span>
+
+    <h2>Termin vereinbaren</h2>
+
+    <p>
+      Kontaktieren Sie uns direkt für Ihren persönlichen Termin.
+    </p>
+
+    <a
+      class="contact-button whatsapp"
+      href="https://wa.me/436606003790?text=Hallo%20Tamer%20Hair%20Design,%20ich%20möchte%20gerne%20einen%20Termin%20vereinbaren."
+      target="_blank"
+    >
+      WhatsApp
+    </a>
+
+    <a
+      class="contact-button phone"
+      href="tel:+436606003790"
+    >
+      ☎ 0660 6003790 ANRUFEN
     </a>
 
   </div>
@@ -568,14 +917,6 @@ footer{
 
 <script>
 
-function openBooking(){
-  document.getElementById("bookingModal").style.display="flex";
-}
-
-function closeBooking(){
-  document.getElementById("bookingModal").style.display="none";
-}
-
 function openContact(){
   document.getElementById("contactModal").style.display="flex";
 }
@@ -584,23 +925,28 @@ function closeContact(){
   document.getElementById("contactModal").style.display="none";
 }
 
-window.onclick = function(event){
-
-  const bookingModal =
-    document.getElementById("bookingModal");
-
-  const contactModal =
-    document.getElementById("contactModal");
-
-  if(event.target === bookingModal){
-    bookingModal.style.display="none";
-  }
-
-  if(event.target === contactModal){
-    contactModal.style.display="none";
-  }
-
+function openBooking(){
+  document.getElementById("bookingModal").style.display="flex";
 }
+
+function closeBooking(){
+  document.getElementById("bookingModal").style.display="none";
+}
+
+window.onclick=function(event){
+
+  const contact=document.getElementById("contactModal");
+  const booking=document.getElementById("bookingModal");
+
+  if(event.target===contact){
+    contact.style.display="none";
+  }
+
+  if(event.target===booking){
+    booking.style.display="none";
+  }
+
+};
 
 </script>
 
